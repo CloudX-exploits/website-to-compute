@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>cloudX Hub Key Entry</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #87ceeb 0%, #f0e68c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  h1 {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    margin-bottom: 20px;
+  }
+  input {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    border: 2px solid #00ffff;
+    outline: none;
+    width: 200px;
+    text-align: center;
+  }
+  button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 6px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #00cccc;
+  }
+  .message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ff0000;
+  }
+  .download-link {
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #00ffff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <h1>cloudX Hub Key Entry</h1>
+  <input id="keyInput" type="text" placeholder="Enter Key" />
+  <button id="submitBtn">Submit</button>
+  <div class="message" id="message"></div>
+  <a href="#" id="downloadLink" class="download-link" style="display:none;" download>Download Hub</a>
+
+<script>
+  const correctKey = "2356";
+  const submitBtn = document.getElementById("submitBtn");
+  const keyInput = document.getElementById("keyInput");
+  const message = document.getElementById("message");
+  const downloadLink = document.getElementById("downloadLink");
+
+  submitBtn.addEventListener("click", () => {
+    if (keyInput.value === correctKey) {
+      message.textContent = "Key accepted! Click below to download.";
+      message.style.color = "#00ff00";
+      downloadLink.style.display = "inline-block";
+      // You can set your actual download link here:
+      downloadLink.href = "https://example.com/cloudX-hub-download.zip";
+    } else {
+      message.textContent = "Wrong key, try again!";
+      message.style.color = "#ff0000";
+      downloadLink.style.display = "none";
+    }
+  });
+</script>
+</body>
+</html>
